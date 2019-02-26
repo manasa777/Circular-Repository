@@ -13,18 +13,14 @@ app.use(fileUpload());
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//var session = require('express-session')
- 
-//app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 var mongojs = require('mongojs')
 var db=mongojs('mongodb://Manasa:srimanya7@ds151124.mlab.com:51124/mydatabase',['circular'])
 
-//app.set('port',process.env.PORT||3000)
+
 app.set('view engine','ejs');
 
 app.get('/',function(req,res){
-	//res.sendFile(__dirname+'/public/circular.html')
 	res.render('circular', {error:false})
 })
 
@@ -45,23 +41,6 @@ app.post('/',function(req,res){
 	db.circular.find(doc,function(err,docs){// frr mongo db
 		console.log(docs)
 		if(docs.length>0){
-			//req.session.first="true"
-			//db.circular.find({},function(err,data){
-				//res.render('dashboard',{res:data})
-				//res.send("working!!!")
-				
-			// 	for(var i=0;i<data.length;i++){
-			// 	if(data[i].role=="'operator'"){
-			// 	res.sendFile(__dirname+'/public/sachin.html')
-			// 	break;
-			//     }
-			//     else if(data[i].role=="'user'"){
-			//     res.sendFile(__dirname+'/public/login.html')
-			//     break;	
-			//     }
-			// }
-			//res.sendFile(__dirname+'/public/sachin.html')
-			//console.log(data)
 			if(docs[0].role=="operator"){
 				res.render('operator',{error:false})
 			}
@@ -83,10 +62,8 @@ app.get('/Subject:subject',function(req,res){
         subject:sub
 	}
 	db.datacircular.find(doc,function(err,docs){// frr mongo db
-		//console.log(docs)
-	
+		
 		if(docs.length>0){
-			//req.session.first="true"
 			db.datacircular.find({docs},function(err,data){
 				res.render('category',{res:docs})
 			})
@@ -97,27 +74,6 @@ app.get('/Subject:subject',function(req,res){
 	})
 
 })
-// app.get('/images:/subject',function(req,res){
-// 		 var sub=req.params.subject;
-// 		 var d ={ subject:sub};
-// 		 db.datacircular.find(d,function(err,doc){
-		 	
-// 		 	if(doc.length>0){
-// 		 	//if(req.session.first=="true"){
-// 	           res.render('get_circulars',{res:doc})
-//              // }
-//            //  else{
-// 	          // res.redirect('/login')
-//            //   }
-//          }
-//          else{
-//          	res.send('invalid')
-//          }
-// 		 })
-	
-	
-// 	})
-
 
 app.post('/export', function(req, res) {
   if (Object.keys(req.files).length == 0) {
@@ -141,18 +97,12 @@ app.post('/export', function(req, res) {
                   for (var idx in jsonArrayObj){
                   var doc=jsonArrayObj[idx]
                   bulk.insert(doc)
-                  //console.log('Donvvvvvvvvvvvvv')
-                  // db.users.insert(doc,function(err,newD){
-                  // console.log(newD)
                    cnt++
-                  // })  
 
                 }
                 bulk.execute(function (err, resss) {
                     console.log('Done!')
                    res.send('<h1>'+cnt+' rows are Sucessully inserted</h1>')
-                   //console.log(resss)
-                 // res.render('operator',{error:true})
                 })
                
             })
@@ -228,9 +178,7 @@ csv()
  });
 
 app.get('/logout',function(req,res){
- 	///req.session.destroy(function(err){
  		res.redirect('/')
- 	//})
  })
 
 app.listen(3000,function(req,res){
