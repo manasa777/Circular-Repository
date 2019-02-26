@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+<link rel="stylesheet" type="text/css" href="circular.css">
+</head>
+<body>
+  <div class="row">
+  <div class="header" id="head" >
+  <img src="logo.png">
+  </div>
+</div>
+
+<div class="row body1">
+<form action="/" method="POST">
+  <div class="imgcontainer">
+    <h3>Login</h3>
+    <img src="https://png.pngtree.com/svg/20161229/_username_login_1172579.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="uname"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter Username" name="username" required>
+     <br>
+    <label for="psw"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter Password" name="password" required>
+        <br>
+     
+    <button type="submit" class="btn btn-success" >Login</button>
+
+  </div>
+
+ <div class="container1" style="background-color:lightblue">
+       <% if(error) {%>
+            <p>enter valid details!!</p>
+   <%  } %>
+  </div> 
+</form>
+</div>
+</div>
+</body>
+</html>

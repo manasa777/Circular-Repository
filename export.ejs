@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Export</title>
+	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="operator.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+<body>
+  <% include operatorheader.ejs%>
+   <div class="row up">
+   <div id ="export">
+       <form action="/export" method="POST" enctype="multipart/form-data">
+            <h2>Export Details!!!!!</h2>
+              <input type="file" name="inputfile" class="roo">
+              <input type="submit" name="submit" style=" background-color: green;color: white;">
+          </form>
+    </div>
+  </div>
+</body>
+</html>

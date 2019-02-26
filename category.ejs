@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body >
+	<% include operatorheader.ejs %>
+	<h1> Hai</h1>
+  <ul style="font-size: 20px;">
+	<% for(var i=0;i<res.length;i++){%>
+	<li><a href="/images/<%= res[i].subject %>">
+		<%= res[i].circulartype%>
+	</a><br></li>
+	<%}%>
+</ul>
+</body>
+</html>

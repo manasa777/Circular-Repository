@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Export</title>
+	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="operator.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap.css">
+</head>
+<body>
+   <% include operatorheader.ejs%>
+ 
+   <div class="row up">
+     <div id="upload">
+        <form action="/upload" method="POST" style="width: 30%" encType="multipart/form-data">
+      Date: <input type="Date" name="datee" value="" class="form-control">
+      Time: <input type="text" name="timee" value=""class="form-control">
+      Circular type: <input type="text" name="circulartype" value=""class="form-control">
+      Circular Description: <input type="text" row="2"name="description" value=""class="form-control"><br>
+       Subject: <select name="subject" >
+        <option>-select-</option>
+        <option>scholarship</option>
+        <option>society</option>
+        <option>cultural</option>
+        <option>holiday</option>
+        <option>examinations</option>
+        <option>academic</option>
+        <option>hostel</option>
+      </select><br><br>
+       Circular Image: <input type="file" name="imgupload" class="roo"><br>
+      <button  type="submit"class="btn btn-success" >upload</button>
+    </form>
+    </div>
+  </div>
+</body>
+</html>
